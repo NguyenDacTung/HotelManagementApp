@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPhong));
             this.lblMaPhong = new System.Windows.Forms.Label();
             this.lblTenPhong = new System.Windows.Forms.Label();
             this.lblLoaiPhong = new System.Windows.Forms.Label();
@@ -37,40 +38,40 @@
             // lblMaPhong
             // 
             this.lblMaPhong.AutoSize = true;
-            this.lblMaPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblMaPhong.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMaPhong.Location = new System.Drawing.Point(26, 22);
             this.lblMaPhong.Name = "lblMaPhong";
-            this.lblMaPhong.Size = new System.Drawing.Size(76, 19);
+            this.lblMaPhong.Size = new System.Drawing.Size(75, 17);
             this.lblMaPhong.TabIndex = 0;
             this.lblMaPhong.Text = "Mã phòng:";
             // 
             // lblTenPhong
             // 
             this.lblTenPhong.AutoSize = true;
-            this.lblTenPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblTenPhong.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTenPhong.Location = new System.Drawing.Point(26, 52);
             this.lblTenPhong.Name = "lblTenPhong";
-            this.lblTenPhong.Size = new System.Drawing.Size(77, 19);
+            this.lblTenPhong.Size = new System.Drawing.Size(78, 17);
             this.lblTenPhong.TabIndex = 1;
             this.lblTenPhong.Text = "Tên phòng:";
             // 
             // lblLoaiPhong
             // 
             this.lblLoaiPhong.AutoSize = true;
-            this.lblLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLoaiPhong.Location = new System.Drawing.Point(26, 82);
             this.lblLoaiPhong.Name = "lblLoaiPhong";
-            this.lblLoaiPhong.Size = new System.Drawing.Size(81, 19);
+            this.lblLoaiPhong.Size = new System.Drawing.Size(82, 17);
             this.lblLoaiPhong.TabIndex = 2;
             this.lblLoaiPhong.Text = "Loại phòng:";
             // 
             // lblTinhTrang
             // 
             this.lblTinhTrang.AutoSize = true;
-            this.lblTinhTrang.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblTinhTrang.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTinhTrang.Location = new System.Drawing.Point(26, 113);
             this.lblTinhTrang.Name = "lblTinhTrang";
-            this.lblTinhTrang.Size = new System.Drawing.Size(75, 19);
+            this.lblTinhTrang.Size = new System.Drawing.Size(77, 17);
             this.lblTinhTrang.TabIndex = 3;
             this.lblTinhTrang.Text = "Tình trạng:";
             // 
@@ -79,7 +80,6 @@
             this.txtMaPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtMaPhong.Location = new System.Drawing.Point(111, 19);
             this.txtMaPhong.Name = "txtMaPhong";
-            this.txtMaPhong.ReadOnly = true;
             this.txtMaPhong.Size = new System.Drawing.Size(181, 25);
             this.txtMaPhong.TabIndex = 4;
             // 
@@ -121,18 +121,18 @@
             this.dgvPhong.AllowUserToDeleteRows = false;
             this.dgvPhong.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPhong.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPhong.Location = new System.Drawing.Point(26, 182);
+            this.dgvPhong.Location = new System.Drawing.Point(12, 179);
             this.dgvPhong.MultiSelect = false;
             this.dgvPhong.Name = "dgvPhong";
             this.dgvPhong.ReadOnly = true;
             this.dgvPhong.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPhong.Size = new System.Drawing.Size(446, 191);
+            this.dgvPhong.Size = new System.Drawing.Size(473, 208);
             this.dgvPhong.TabIndex = 8;
             this.dgvPhong.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPhong_CellClick);
             // 
             // btnLamMoi
             // 
-            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnLamMoi.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLamMoi.Location = new System.Drawing.Point(317, 26);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(154, 30);
@@ -143,7 +143,7 @@
             // 
             // btnMoLoaiPhong
             // 
-            this.btnMoLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnMoLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMoLoaiPhong.Location = new System.Drawing.Point(317, 65);
             this.btnMoLoaiPhong.Name = "btnMoLoaiPhong";
             this.btnMoLoaiPhong.Size = new System.Drawing.Size(154, 30);
@@ -189,6 +189,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::HotelManagementApp.Properties.Resources.Ảnh_chụp_màn_hình_2025_10_25_220039;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(497, 399);
             this.Controls.Add(this.btnXoa);
             this.Controls.Add(this.btnSua);
@@ -204,6 +206,8 @@
             this.Controls.Add(this.lblLoaiPhong);
             this.Controls.Add(this.lblTenPhong);
             this.Controls.Add(this.lblMaPhong);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPhong";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Quản lý phòng";

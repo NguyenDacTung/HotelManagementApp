@@ -32,6 +32,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblPass = new System.Windows.Forms.Label();
@@ -39,12 +40,14 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(92, 17);
+            this.lblTitle.Location = new System.Drawing.Point(92, 9);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(296, 38);
@@ -55,7 +58,7 @@
             // lblUser
             // 
             this.lblUser.AutoSize = true;
-            this.lblUser.Location = new System.Drawing.Point(166, 197);
+            this.lblUser.Location = new System.Drawing.Point(94, 159);
             this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(84, 13);
@@ -65,7 +68,7 @@
             // lblPass
             // 
             this.lblPass.AutoSize = true;
-            this.lblPass.Location = new System.Drawing.Point(195, 221);
+            this.lblPass.Location = new System.Drawing.Point(94, 186);
             this.lblPass.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPass.Name = "lblPass";
             this.lblPass.Size = new System.Drawing.Size(55, 13);
@@ -74,7 +77,7 @@
             // 
             // txtUser
             // 
-            this.txtUser.Location = new System.Drawing.Point(254, 194);
+            this.txtUser.Location = new System.Drawing.Point(182, 156);
             this.txtUser.Margin = new System.Windows.Forms.Padding(2);
             this.txtUser.Name = "txtUser";
             this.txtUser.Size = new System.Drawing.Size(214, 20);
@@ -82,7 +85,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(254, 218);
+            this.txtPass.Location = new System.Drawing.Point(182, 183);
             this.txtPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
@@ -91,7 +94,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(273, 256);
+            this.btnLogin.Location = new System.Drawing.Point(201, 222);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(103, 33);
@@ -102,7 +105,7 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(380, 256);
+            this.btnExit.Location = new System.Drawing.Point(308, 222);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(88, 33);
@@ -111,21 +114,36 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(92, 47);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(296, 38);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "QUẢN LÝ KHÁCH SẠN";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ///this.BackgroundImage = global::HotelManagementApp.Properties.Resources.anh_chup_man_hinh_2025_06_02_luc_10_48_23;
-            //this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(479, 300);
+            this.BackgroundImage = global::HotelManagementApp.Properties.Resources.anh_chup_man_hinh_2025_06_02_luc_10_48_23;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(463, 311);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtPass);
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.lblPass);
             this.Controls.Add(this.lblUser);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -139,5 +157,7 @@
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }

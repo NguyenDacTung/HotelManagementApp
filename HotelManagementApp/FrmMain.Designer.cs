@@ -17,6 +17,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.lblNhanVien = new System.Windows.Forms.Label();
             this.btnPhong = new System.Windows.Forms.Button();
             this.btnKhachHang = new System.Windows.Forms.Button();
@@ -32,6 +33,7 @@
             // lblNhanVien
             // 
             this.lblNhanVien.AutoSize = true;
+            this.lblNhanVien.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.lblNhanVien.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lblNhanVien.Location = new System.Drawing.Point(15, 13);
             this.lblNhanVien.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
@@ -42,118 +44,127 @@
             // 
             // btnPhong
             // 
-            this.btnPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.btnPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnPhong.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPhong.Location = new System.Drawing.Point(38, 52);
             this.btnPhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnPhong.Name = "btnPhong";
-            this.btnPhong.Size = new System.Drawing.Size(172, 59);
+            this.btnPhong.Size = new System.Drawing.Size(140, 59);
             this.btnPhong.TabIndex = 1;
-            this.btnPhong.Text = "Phòng";
-            this.btnPhong.UseVisualStyleBackColor = true;
+            this.btnPhong.Text = "PHÒNG";
+            this.btnPhong.UseVisualStyleBackColor = false;
             this.btnPhong.Click += new System.EventHandler(this.btnPhong_Click);
             // 
             // btnKhachHang
             // 
-            this.btnKhachHang.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnKhachHang.Location = new System.Drawing.Point(214, 116);
+            this.btnKhachHang.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnKhachHang.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKhachHang.Location = new System.Drawing.Point(38, 115);
             this.btnKhachHang.Margin = new System.Windows.Forms.Padding(2);
             this.btnKhachHang.Name = "btnKhachHang";
-            this.btnKhachHang.Size = new System.Drawing.Size(172, 60);
+            this.btnKhachHang.Size = new System.Drawing.Size(140, 60);
             this.btnKhachHang.TabIndex = 2;
-            this.btnKhachHang.Text = "Khách hàng";
-            this.btnKhachHang.UseVisualStyleBackColor = true;
+            this.btnKhachHang.Text = "KHÁCH HÀNG";
+            this.btnKhachHang.UseVisualStyleBackColor = false;
             this.btnKhachHang.Click += new System.EventHandler(this.btnKhachHang_Click);
             // 
             // btnDatPhong
             // 
-            this.btnDatPhong.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnDatPhong.Location = new System.Drawing.Point(38, 115);
+            this.btnDatPhong.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnDatPhong.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDatPhong.Location = new System.Drawing.Point(182, 52);
             this.btnDatPhong.Margin = new System.Windows.Forms.Padding(2);
             this.btnDatPhong.Name = "btnDatPhong";
-            this.btnDatPhong.Size = new System.Drawing.Size(172, 61);
+            this.btnDatPhong.Size = new System.Drawing.Size(140, 59);
             this.btnDatPhong.TabIndex = 3;
-            this.btnDatPhong.Text = "Đặt phòng";
-            this.btnDatPhong.UseVisualStyleBackColor = true;
+            this.btnDatPhong.Text = "ĐẶT PHÒNG";
+            this.btnDatPhong.UseVisualStyleBackColor = false;
             this.btnDatPhong.Click += new System.EventHandler(this.btnDatPhong_Click);
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnHoaDon.Location = new System.Drawing.Point(38, 180);
+            this.btnHoaDon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnHoaDon.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHoaDon.Location = new System.Drawing.Point(182, 115);
             this.btnHoaDon.Margin = new System.Windows.Forms.Padding(2);
             this.btnHoaDon.Name = "btnHoaDon";
-            this.btnHoaDon.Size = new System.Drawing.Size(172, 60);
+            this.btnHoaDon.Size = new System.Drawing.Size(140, 60);
             this.btnHoaDon.TabIndex = 4;
-            this.btnHoaDon.Text = "Hóa đơn";
-            this.btnHoaDon.UseVisualStyleBackColor = true;
+            this.btnHoaDon.Text = "HÓA ĐƠN";
+            this.btnHoaDon.UseVisualStyleBackColor = false;
             this.btnHoaDon.Click += new System.EventHandler(this.btnHoaDon_Click);
             // 
             // btnNhanVien
             // 
-            this.btnNhanVien.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnNhanVien.Location = new System.Drawing.Point(214, 52);
+            this.btnNhanVien.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnNhanVien.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNhanVien.Location = new System.Drawing.Point(38, 181);
             this.btnNhanVien.Margin = new System.Windows.Forms.Padding(2);
             this.btnNhanVien.Name = "btnNhanVien";
-            this.btnNhanVien.Size = new System.Drawing.Size(172, 59);
+            this.btnNhanVien.Size = new System.Drawing.Size(140, 59);
             this.btnNhanVien.TabIndex = 5;
-            this.btnNhanVien.Text = "Nhân viên";
-            this.btnNhanVien.UseVisualStyleBackColor = true;
+            this.btnNhanVien.Text = "NHÂN VIÊN";
+            this.btnNhanVien.UseVisualStyleBackColor = false;
             this.btnNhanVien.Click += new System.EventHandler(this.btnNhanVien_Click);
             // 
             // btnBaoCao
             // 
-            this.btnBaoCao.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnBaoCao.Location = new System.Drawing.Point(214, 179);
+            this.btnBaoCao.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnBaoCao.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBaoCao.Location = new System.Drawing.Point(182, 181);
             this.btnBaoCao.Margin = new System.Windows.Forms.Padding(2);
             this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(172, 61);
+            this.btnBaoCao.Size = new System.Drawing.Size(140, 59);
             this.btnBaoCao.TabIndex = 6;
-            this.btnBaoCao.Text = "Báo cáo";
-            this.btnBaoCao.UseVisualStyleBackColor = true;
+            this.btnBaoCao.Text = "BÁO CÁO";
+            this.btnBaoCao.UseVisualStyleBackColor = false;
             this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // btnDoiMatKhau
             // 
+            this.btnDoiMatKhau.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDoiMatKhau.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnDoiMatKhau.Location = new System.Drawing.Point(353, 318);
+            this.btnDoiMatKhau.Location = new System.Drawing.Point(425, 344);
             this.btnDoiMatKhau.Margin = new System.Windows.Forms.Padding(2);
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
-            this.btnDoiMatKhau.Size = new System.Drawing.Size(135, 39);
+            this.btnDoiMatKhau.Size = new System.Drawing.Size(109, 26);
             this.btnDoiMatKhau.TabIndex = 7;
             this.btnDoiMatKhau.Text = "Đổi mật khẩu";
-            this.btnDoiMatKhau.UseVisualStyleBackColor = true;
+            this.btnDoiMatKhau.UseVisualStyleBackColor = false;
             this.btnDoiMatKhau.Click += new System.EventHandler(this.btnDoiMatKhau_Click);
             // 
             // btnDangXuat
             // 
+            this.btnDangXuat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnDangXuat.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnDangXuat.Location = new System.Drawing.Point(353, 361);
+            this.btnDangXuat.Location = new System.Drawing.Point(425, 374);
             this.btnDangXuat.Margin = new System.Windows.Forms.Padding(2);
             this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(135, 39);
+            this.btnDangXuat.Size = new System.Drawing.Size(109, 26);
             this.btnDangXuat.TabIndex = 8;
             this.btnDangXuat.Text = "Đăng xuất";
-            this.btnDangXuat.UseVisualStyleBackColor = true;
+            this.btnDangXuat.UseVisualStyleBackColor = false;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
             // 
             // btnThoat
             // 
-            this.btnThoat.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btnThoat.Location = new System.Drawing.Point(492, 318);
+            this.btnThoat.BackColor = System.Drawing.Color.Red;
+            this.btnThoat.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThoat.Location = new System.Drawing.Point(538, 344);
             this.btnThoat.Margin = new System.Windows.Forms.Padding(2);
             this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(135, 82);
+            this.btnThoat.Size = new System.Drawing.Size(89, 56);
             this.btnThoat.TabIndex = 9;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Text = "THOÁT";
+            this.btnThoat.UseVisualStyleBackColor = false;
             this.btnThoat.Click += new System.EventHandler(this.btnThoat_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            //this.BackgroundImage = global::HotelManagementApp.Properties.Resources.anh_chup_man_hinh_2025_06_02_luc_10_48_23;
-            //this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BackgroundImage = global::HotelManagementApp.Properties.Resources.anh_chup_man_hinh_2025_06_02_luc_10_48_23;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(638, 411);
             this.Controls.Add(this.btnThoat);
             this.Controls.Add(this.btnDangXuat);
@@ -165,6 +176,7 @@
             this.Controls.Add(this.btnKhachHang);
             this.Controls.Add(this.btnPhong);
             this.Controls.Add(this.lblNhanVien);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

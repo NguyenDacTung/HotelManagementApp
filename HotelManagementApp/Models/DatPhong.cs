@@ -17,11 +17,14 @@ namespace HotelManagementApp.Models
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaDatPhong { get; set; }
 
         public int? MaKH { get; set; }
 
         public int? MaNV { get; set; }
+
+        public int? MaPhong { get; set; }  
 
         [Column(TypeName = "date")]
         public DateTime? NgayDat { get; set; }
@@ -32,12 +35,14 @@ namespace HotelManagementApp.Models
         [Column(TypeName = "date")]
         public DateTime? NgayDi { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChiTietDatPhong> ChiTietDatPhong { get; set; }
-
         public virtual KhachHang KhachHang { get; set; }
 
         public virtual NhanVien NhanVien { get; set; }
+
+        public virtual Phong Phong { get; set; }  
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietDatPhong> ChiTietDatPhong { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDon { get; set; }

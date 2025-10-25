@@ -1,4 +1,4 @@
-namespace HotelManagementApp.Models
+﻿namespace HotelManagementApp.Models
 {
     using System;
     using System.Collections.Generic;
@@ -10,6 +10,7 @@ namespace HotelManagementApp.Models
     public partial class HoaDon
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaHD { get; set; }
 
         public int? MaDatPhong { get; set; }

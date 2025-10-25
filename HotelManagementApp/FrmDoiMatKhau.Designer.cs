@@ -24,6 +24,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoiMatKhau));
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblOldPass = new System.Windows.Forms.Label();
             this.lblNewPass = new System.Windows.Forms.Label();
@@ -38,43 +39,48 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(100, 20);
+            this.lblTitle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Black;
+            this.lblTitle.Location = new System.Drawing.Point(76, 9);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(152, 25);
+            this.lblTitle.Size = new System.Drawing.Size(219, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "ĐỔI MẬT KHẨU";
             // 
             // lblOldPass
             // 
             this.lblOldPass.AutoSize = true;
-            this.lblOldPass.Location = new System.Drawing.Point(30, 80);
+            this.lblOldPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOldPass.Location = new System.Drawing.Point(29, 79);
             this.lblOldPass.Name = "lblOldPass";
-            this.lblOldPass.Size = new System.Drawing.Size(70, 13);
+            this.lblOldPass.Size = new System.Drawing.Size(100, 20);
             this.lblOldPass.TabIndex = 1;
             this.lblOldPass.Text = "Mật khẩu cũ:";
             // 
             // lblNewPass
             // 
             this.lblNewPass.AutoSize = true;
-            this.lblNewPass.Location = new System.Drawing.Point(30, 120);
+            this.lblNewPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewPass.Location = new System.Drawing.Point(29, 120);
             this.lblNewPass.Name = "lblNewPass";
-            this.lblNewPass.Size = new System.Drawing.Size(74, 13);
+            this.lblNewPass.Size = new System.Drawing.Size(108, 20);
             this.lblNewPass.TabIndex = 2;
             this.lblNewPass.Text = "Mật khẩu mới:";
             // 
             // lblConfirm
             // 
             this.lblConfirm.AutoSize = true;
-            this.lblConfirm.Location = new System.Drawing.Point(30, 160);
+            this.lblConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirm.Location = new System.Drawing.Point(29, 162);
             this.lblConfirm.Name = "lblConfirm";
-            this.lblConfirm.Size = new System.Drawing.Size(103, 13);
+            this.lblConfirm.Size = new System.Drawing.Size(151, 20);
             this.lblConfirm.TabIndex = 3;
             this.lblConfirm.Text = "Xác nhận mật khẩu:";
             // 
             // txtOldPass
             // 
-            this.txtOldPass.Location = new System.Drawing.Point(150, 77);
+            this.txtOldPass.Location = new System.Drawing.Point(188, 79);
             this.txtOldPass.Name = "txtOldPass";
             this.txtOldPass.PasswordChar = '*';
             this.txtOldPass.Size = new System.Drawing.Size(180, 20);
@@ -82,7 +88,7 @@
             // 
             // txtNewPass
             // 
-            this.txtNewPass.Location = new System.Drawing.Point(150, 117);
+            this.txtNewPass.Location = new System.Drawing.Point(188, 120);
             this.txtNewPass.Name = "txtNewPass";
             this.txtNewPass.PasswordChar = '*';
             this.txtNewPass.Size = new System.Drawing.Size(180, 20);
@@ -90,7 +96,7 @@
             // 
             // txtConfirm
             // 
-            this.txtConfirm.Location = new System.Drawing.Point(150, 157);
+            this.txtConfirm.Location = new System.Drawing.Point(188, 162);
             this.txtConfirm.Name = "txtConfirm";
             this.txtConfirm.PasswordChar = '*';
             this.txtConfirm.Size = new System.Drawing.Size(180, 20);
@@ -98,26 +104,33 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(70, 210);
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSave.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Location = new System.Drawing.Point(82, 210);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 35);
             this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Lưu";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Text = "LƯU";
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(210, 210);
+            this.btnCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnCancel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(188, 210);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 35);
             this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Hủy";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Text = "HỦY";
+            this.btnCancel.UseVisualStyleBackColor = false;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FrmDoiMatKhau
             // 
+            this.BackgroundImage = global::HotelManagementApp.Properties.Resources.userpassword_deusuari_787;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(380, 280);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblOldPass);
@@ -128,6 +141,8 @@
             this.Controls.Add(this.txtConfirm);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDoiMatKhau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đổi mật khẩu";

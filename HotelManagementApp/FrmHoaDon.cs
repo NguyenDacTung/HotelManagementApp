@@ -32,19 +32,26 @@ namespace HotelManagementApp
                     h.MaDatPhong,
                     h.NgayLap,
                     h.TongTien
-                }).ToList();
+                })
+                .ToList();
+
+            dgvHoaDon.Columns["MaHD"].HeaderText = "Mã hóa đơn";
+            dgvHoaDon.Columns["MaDatPhong"].HeaderText = "Mã đặt phòng";
         }
 
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                txtMaHD.Text = dgvHoaDon.Rows[e.RowIndex].Cells["MaHD"].Value.ToString();
-                txtMaDatPhong.Text = dgvHoaDon.Rows[e.RowIndex].Cells["MaDatPhong"].Value.ToString();
-                dtpNgayLap.Value = Convert.ToDateTime(dgvHoaDon.Rows[e.RowIndex].Cells["NgayLap"].Value);
-                txtTongTien.Text = dgvHoaDon.Rows[e.RowIndex].Cells["TongTien"].Value.ToString();
+                var row = dgvHoaDon.Rows[e.RowIndex];
+
+                txtMaHD.Text = row.Cells["MaHD"].Value?.ToString() ?? "";
+                txtMaDatPhong.Text = row.Cells["MaDatPhong"].Value?.ToString() ?? "";
+                dtpNgayLap.Value = Convert.ToDateTime(row.Cells["NgayLap"].Value);
+                txtTongTien.Text = row.Cells["TongTien"].Value?.ToString() ?? "";
             }
         }
+
 
         private void btnSua_Click(object sender, EventArgs e)
         {

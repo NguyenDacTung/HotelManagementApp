@@ -167,6 +167,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -181,6 +182,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh-chup-man-hinh-2025-06-02-luc-10-48-23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\png-clipart-mường-thanh-luxury-quang-ninh-hotel-ha-long-bay-ha-long-travel-muong-thanh-ha-long-bay-interior-design-room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh-chup-man-hinh-2025-06-02-luc-10-48-231.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\684minhkhai3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\userpassword_deusuari_787.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Envoria-Sustainability-Reporting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pngtree-invoice-vector-icon-design-illustration-png-image_6636703.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\anh-chup-man-hinh-2025-06-02-luc-10-48-232.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\684minhkhai31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images %281%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\106-1062427_team-development-programs-staff-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ảnh chụp màn hình 2025-10-25 220039.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

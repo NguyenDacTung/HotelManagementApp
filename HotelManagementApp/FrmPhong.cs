@@ -14,25 +14,43 @@ namespace HotelManagementApp
         public FrmPhong(string quyen)
         {
             InitializeComponent();
-            this.quyen = quyen ?? "nhanvien"; // tránh null
+            this.quyen = quyen ?? "nhanvien"; 
         }
 
         private void FrmPhong_Load(object sender, EventArgs e)
         {
             string role = (quyen ?? "").Trim().ToLower();
 
-            // ✅ Chỉ admin mới có quyền mở loại phòng, thêm, xóa
-            btnMoLoaiPhong.Enabled = (role == "admin");
+            // Chỉ admin mới được thêm, xóa
             btnThem.Enabled = (role == "admin");
             btnXoa.Enabled = (role == "admin");
+            btnMoLoaiPhong.Enabled = (role == "admin");
 
-            // ✅ Cả admin & nhân viên đều được sửa
+            // Nhân viên được sửa, nhưng chỉ được sửa tình trạng
             btnSua.Enabled = true;
-
 
             LoadLoaiPhongToCombo();
             LoadPhongToGrid();
+
+            if (role == "nhanvien")
+            {
+                // ✅ Khóa các ô: Mã, Tên, Loại phòng
+                txtMaPhong.Enabled = false;
+                txtTenPhong.Enabled = false;
+                cboLoaiPhong.Enabled = false;
+                // Chỉ cho sửa tình trạng
+                cboTinhTrang.Enabled = true;
+            }
+            else if (role == "admin")
+            {
+                // Admin có toàn quyền
+                txtMaPhong.Enabled = true;
+                txtTenPhong.Enabled = true;
+                cboLoaiPhong.Enabled = true;
+                cboTinhTrang.Enabled = true;
+            }
         }
+
 
         private void LoadLoaiPhongToCombo()
         {
@@ -74,6 +92,25 @@ namespace HotelManagementApp
             if (cboLoaiPhong.Items.Count > 0) cboLoaiPhong.SelectedIndex = 0;
             cboTinhTrang.SelectedIndex = 0;
             selectedMaPhong = null;
+
+            // ✅ bật nhập và gợi ý số kế tiếp
+            txtMaPhong.Enabled = true;
+            txtMaPhong.Text = GetNextMaPhong().ToString();
+        }
+
+        private int GetNextMaPhong()
+        {
+            var used = db.Phong.Select(p => p.MaPhong).ToList();
+            if (used.Count == 0) return 1;
+
+            used.Sort();
+            int candidate = 1;
+            foreach (var id in used)
+            {
+                if (id == candidate) candidate++;
+                else if (id > candidate) break;   // gặp lỗ thì dừng
+            }
+            return candidate;
         }
 
         private void dgvPhong_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -121,38 +158,76 @@ namespace HotelManagementApp
         {
             if (!quyen.Equals("admin", StringComparison.OrdinalIgnoreCase))
             {
-                MessageBox.Show("Chỉ admin mới có thể thêm phòng.", "Không có quyền", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chỉ admin mới có thể thêm phòng.", "Không có quyền",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             string ten = txtTenPhong.Text.Trim();
             if (string.IsNullOrEmpty(ten))
             {
-                MessageBox.Show("Vui lòng nhập tên phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng nhập tên phòng.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             if (cboLoaiPhong.SelectedValue == null)
             {
-                MessageBox.Show("Vui lòng chọn loại phòng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn loại phòng.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             int maLoai = Convert.ToInt32(cboLoaiPhong.SelectedValue);
             string trangThai = cboTinhTrang.Text;
 
+            // ✅ xác định mã phòng
+            int maPhong;
+            bool userTypedId = !string.IsNullOrWhiteSpace(txtMaPhong.Text);
+
+            if (userTypedId)
+            {
+                if (!int.TryParse(txtMaPhong.Text, out maPhong))
+                {
+                    MessageBox.Show("Vui lòng nhập Mã phòng là số nguyên!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMaPhong.Focus(); return;
+                }
+                if (db.Phong.Any(x => x.MaPhong == maPhong))
+                {
+                    MessageBox.Show("Mã phòng đã tồn tại, vui lòng nhập mã khác!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtMaPhong.Focus(); return;
+                }
+            }
+            else
+            {
+                maPhong = GetNextMaPhong(); // gợi ý nếu để trống
+            }
+
             var p = new Phong
             {
+                MaPhong = maPhong,            // ⬅️ gán rõ ràng
                 TenPhong = ten,
                 MaLoaiPhong = maLoai,
                 TrangThai = trangThai
             };
 
-            db.Phong.Add(p);
-            db.SaveChanges();
-            MessageBox.Show("Thêm phòng thành công.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            LoadPhongToGrid();
+            try
+            {
+                db.Phong.Add(p);
+                db.SaveChanges();
+                MessageBox.Show("Thêm phòng thành công.", "Thông báo",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadPhongToGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi thêm phòng: " + ex.GetBaseException().Message,
+                    "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
+
 
         // Sửa phòng
         private void btnSua_Click(object sender, EventArgs e)

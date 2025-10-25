@@ -16,6 +16,7 @@ namespace HotelManagementApp.Models
         }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int MaPhong { get; set; }
 
         [StringLength(50)]
