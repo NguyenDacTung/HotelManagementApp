@@ -181,7 +181,6 @@
             // 
             // FrmNhanVien
             // 
-            this.BackgroundImage = global::HotelManagementApp.Properties.Resources._106_1062427_team_development_programs_staff_icon;
             this.ClientSize = new System.Drawing.Size(700, 480);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.lblTenNV);

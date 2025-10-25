@@ -3,13 +3,19 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
-using System.Data.Entity;
 
 namespace HotelManagementApp
 {
     public partial class FrmDatPhong : Form
     {
         private Model1 db = new Model1();
+        private readonly bool isAdmin;   
+
+        public FrmDatPhong(string quyen)     
+        {
+            InitializeComponent();
+            isAdmin = string.Equals(quyen, "admin", StringComparison.OrdinalIgnoreCase);
+        }
 
         public FrmDatPhong()
         {
@@ -293,15 +299,16 @@ namespace HotelManagementApp
 
         private void btnLapHoaDon_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMaDatPhong.Text))
+            if (string.IsNullOrWhiteSpace(txtMaDatPhong.Text))
             {
                 MessageBox.Show("Vui lòng chọn phiếu đặt phòng!");
                 return;
             }
 
-            FrmHoaDon frmHD = new FrmHoaDon();
-            frmHD.Tag = txtMaDatPhong.Text;
+            var frmHD = new FrmHoaDon(isAdmin);
+            frmHD.Tag = txtMaDatPhong.Text?.Trim();
             frmHD.ShowDialog();
         }
+
     }
 }

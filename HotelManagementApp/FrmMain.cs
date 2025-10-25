@@ -5,7 +5,6 @@ namespace HotelManagementApp
 {
     public partial class FrmMain : Form
     {
-        // Thêm 3 property để FrmLogin có thể truyền dữ liệu sang
         public string TenDangNhap { get; set; }
         public string Quyen { get; set; }
         public int MaNhanVien { get; set; }
@@ -49,15 +48,18 @@ namespace HotelManagementApp
 
         private void btnDatPhong_Click(object sender, EventArgs e)
         {
-            FrmDatPhong frm = new FrmDatPhong();
+            FrmDatPhong frm = new FrmDatPhong(Quyen);   
             frm.ShowDialog();
         }
 
         private void btnHoaDon_Click(object sender, EventArgs e)
         {
-            FrmHoaDon f = new FrmHoaDon();
+            bool isAdmin = string.Equals(Quyen, "admin", StringComparison.OrdinalIgnoreCase);
+            FrmHoaDon f = new FrmHoaDon(isAdmin);
             f.ShowDialog();
         }
+
+
 
         private void btnNhanVien_Click(object sender, EventArgs e)
         {

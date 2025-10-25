@@ -174,7 +174,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::HotelManagementApp.Properties.Resources.pngtree_invoice_vector_icon_design_illustration_png_image_6636703;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(525, 325);
             this.Controls.Add(this.lblMaHD);
