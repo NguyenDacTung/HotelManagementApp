@@ -10,7 +10,7 @@
     public partial class HoaDon
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int MaHD { get; set; }
 
         public int? MaDatPhong { get; set; }

@@ -3,6 +3,7 @@ using System;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace HotelManagementApp
 {
@@ -128,9 +129,24 @@ namespace HotelManagementApp
                     return;
                 }
 
+                // Lấy mã đặt phòng từ textbox; nếu không hợp lệ thì tự gợi ý
+                int maDP;
+                if (!int.TryParse(txtMaDatPhong.Text.Trim(), out maDP) || maDP <= 0)
+                {
+                    maDP = GetNextMaDatPhong();
+                    txtMaDatPhong.Text = maDP.ToString();
+                }
+
+                // Tránh trùng mã
+                if (db.DatPhong.Any(d => d.MaDatPhong == maDP))
+                {
+                    MessageBox.Show("Mã đặt phòng đã tồn tại. Vui lòng bấm Làm mới để lấy mã khác.");
+                    return;
+                }
+
                 int maPhong = Convert.ToInt32(cboMaPhong.SelectedValue);
 
-                // ✅ Kiểm tra lại trạng thái phòng mới nhất trong DB
+                // Kiểm tra trạng thái phòng mới nhất trong DB
                 var phongNow = db.Phong.AsNoTracking().FirstOrDefault(p => p.MaPhong == maPhong);
                 if (phongNow == null)
                 {
@@ -141,13 +157,13 @@ namespace HotelManagementApp
                 if (!string.Equals(phongNow.TrangThai, "Trống", StringComparison.OrdinalIgnoreCase))
                 {
                     MessageBox.Show("Phòng này hiện không còn trống. Vui lòng chọn phòng khác.");
-                    LoadComboBoxData(); // nạp lại danh sách phòng trống
+                    LoadComboBoxData();
                     return;
                 }
 
-                // --- Thêm phiếu đặt phòng ---
                 var dp = new DatPhong
                 {
+                    MaDatPhong = maDP,                      
                     MaKH = (int)cboMaKH.SelectedValue,
                     MaNV = (int)cboMaNV.SelectedValue,
                     MaPhong = maPhong,
@@ -156,31 +172,27 @@ namespace HotelManagementApp
                     NgayDi = dtpNgayDi.Value
                 };
                 db.DatPhong.Add(dp);
-                db.SaveChanges(); // lưu để có MaDatPhong
+                db.SaveChanges(); 
 
-                // --- Ghi chi tiết + đổi trạng thái phòng ---
                 var loai = db.LoaiPhong.Find(phongNow.MaLoaiPhong);
                 var donGia = loai?.GiaPhong ?? 0m;
 
                 db.ChiTietDatPhong.Add(new ChiTietDatPhong
                 {
-                    MaDatPhong = dp.MaDatPhong,
+                    MaDatPhong = maDP,
                     MaPhong = maPhong,
                     DonGia = donGia
                 });
-
                 var phong = db.Phong.Find(maPhong);
                 if (phong != null) phong.TrangThai = "Đang ở";
 
-                // --- Tạo hóa đơn (mã HD tự sinh theo code của bạn) ---
                 int nextMaHD = db.HoaDon.Any() ? db.HoaDon.Max(h => h.MaHD) + 1 : 1;
                 int soNgay = Math.Max(1, (dtpNgayDi.Value.Date - dtpNgayDen.Value.Date).Days);
                 decimal tongTien = donGia * soNgay;
 
                 db.HoaDon.Add(new HoaDon
                 {
-                    MaHD = nextMaHD,
-                    MaDatPhong = dp.MaDatPhong,
+                    MaDatPhong = maDP,        
                     NgayLap = DateTime.Now,
                     TongTien = tongTien
                 });
@@ -189,9 +201,8 @@ namespace HotelManagementApp
 
                 MessageBox.Show("Đặt phòng và tạo hóa đơn thành công!");
 
-                // ✅ NẠP LẠI COMBO PHÒNG TRỐNG để phòng vừa đặt biến mất khỏi danh sách
-                LoadComboBoxData();
-                LoadData();
+                LoadData();          
+                LoadComboBoxData();    
                 AutoGenerateMaDatPhong();
             }
             catch (Exception ex)
@@ -199,8 +210,6 @@ namespace HotelManagementApp
                 MessageBox.Show("Lỗi khi đặt phòng: " + ex.GetBaseException().Message);
             }
         }
-
-
 
 
         private void btnLamMoi_Click(object sender, EventArgs e)
